@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Macro Popup</string>
+    <string name="descricao_servico">Permite gravar toques e deslizes na tela e reproduzi-los automaticamente a partir de um popup flutuante. Nenhum dado sai do aparelho.</string>
+</resources>
