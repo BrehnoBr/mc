@@ -4,6 +4,9 @@ on:
   workflow_dispatch:
   push:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,3 +29,13 @@ jobs:
         with:
           name: MacroPopup-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Commit APK to repo
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk dist/MacroPopup.apk
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -f dist/MacroPopup.apk
+          git commit -m "Add built APK [skip ci]" || exit 0
+          git push
